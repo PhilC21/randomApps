@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1VarStats Calculator</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <h1>1VarStats Calculator</h1>
+        <form id="statsForm">
+            <label for="dataInput">Enter data (comma-separated):</label>
+            <input type="text" id="dataInput" placeholder="e.g., 5, 10, 7, 8, 3" required>
+            <button type="submit">Calculate</button>
+        </form>
+
+        <div id="results">
+            <h3>Ordered List:</h3>
+            <p id="orderedList"></p>
+            <h3>Statistics:</h3>
+            <ul id="statsOutput"></ul>
+        </div>
+    </div>
+</body>
+</html>
