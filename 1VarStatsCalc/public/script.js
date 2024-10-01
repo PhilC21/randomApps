@@ -26,10 +26,10 @@ document.getElementById("statsForm").addEventListener("submit", function (event)
             <li>Population Std Dev: ${stats.popStdDev}</li>
             <li>Sample Std Dev: ${stats.sampleStdDev}</li>
             <li>Min: ${stats.min}</li>
+            <li>First Quartile (Q1): ${stats.q1}</li>
+            <li>Median (Q2): ${stats.median}</li>
+            <li>Third Quartile (Q3): ${stats.q3}</li>
             <li>Max: ${stats.max}</li>
-            <li>Median: ${stats.median}</li>
-            <li>Q1 (First Quartile): ${stats.q1}</li>
-            <li>Q3 (Third Quartile): ${stats.q3}</li>
         `;
         })
         .catch(error => console.error('Error:', error));
