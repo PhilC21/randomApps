@@ -1,0 +1,225 @@
+/* General body styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #000; /* Black background */
+    color: #fff; /* White text for contrast */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Container for centering content */
+.container {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    width: 80%;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #1a1a1a; /* Darker background for content */
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.7);
+    
+}
+
+/* Header styles */
+header {
+    padding: 10px;
+    background-color: #111;
+    width: 100%;
+    text-align: center;
+    position: sticky;
+    top: 0;
+}
+
+header ul {
+    list-style-type: none;
+}
+
+header h1 {
+    color: #0af; /* Bright blue */
+    margin: 0;
+}
+
+/* Link styles */
+a {
+    color: #0af; /* Blue links */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Form styling */
+form {
+    margin: 20px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+form label {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+form input[type="text"] {
+    padding: 10px;
+    font-size: 1rem;
+    border: 2px solid #0af; /* Blue border */
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+form button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: #0af; /* Blue button */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #0080ff; /* Lighter blue on hover */
+}
+
+/* Table styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #222;
+    border: 1px solid #444;
+}
+
+thead {
+    background-color: #0af; /* Blue header */
+}
+
+thead th {
+    padding: 10px;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    color: #000;
+}
+
+tbody td {
+    padding: 10px;
+    text-align: center;
+    font-size: 1rem;
+    color: #fff;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #333; /* Dark row stripes */
+}
+
+tbody tr:nth-child(odd) {
+    background-color: #222; /* Light row stripes */
+}
+
+/* Colors for specific columns */
+td:nth-child(2), /* Open price */
+td:nth-child(5)  /* Close price */
+{
+    color: #0af; /* Blue text */
+}
+
+td:nth-child(3)  /* High price */
+{
+    color: #0f0; /* Green text */
+}
+
+td:nth-child(4)  /* Low price */
+{
+    color: #f00; /* Red text */
+}
+
+/* Footer styling */
+footer {
+    background-color: #111;
+    padding: 10px;
+    color: #0af;
+    text-align: center;
+    width: 100%;
+    position: sticky;
+    bottom: 0;
+    margin-top: auto;
+}
+
+/* Responsive Styling for Small Screens */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+        padding: 15px;
+    }
+
+    table, thead, tbody, th, td, tr {
+        display: block;
+    }
+
+    /* Hide table headers (not needed for mobile) */
+    thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+
+    tbody tr {
+        margin: 0 0 10px 0;
+        padding: 10px;
+        background-color: #1a1a1a;
+        border: 1px solid #333;
+    }
+
+    tbody td {
+        display: block;
+        text-align: right;
+        padding: 10px 15px;
+        position: relative;
+        border-bottom: 1px solid #444;
+    }
+
+    tbody td:before {
+        content: attr(data-label); /* Add data-label attribute to each cell */
+        position: absolute;
+        left: 10px;
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+
+    form input[type="text"] {
+        width: 100%;
+    }
+
+    form button {
+        width: 100%;
+    }
+}
+
+/* Toggle buttons */
+.toggle-buttons {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.toggle-buttons button {
+    background-color: #0af;
+    color: #fff;
+    padding: 10px 20px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.toggle-buttons button:hover {
+    background-color: #0080ff;
+}

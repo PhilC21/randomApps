@@ -1,0 +1,108 @@
+<a href="/">Go Back</a>
+<h1>Stock Analysis for <%= symbol %></h1>
+<!-- Toggle buttons -->
+<div class="toggle-buttons">
+    <button id="show-detailed">Show Detailed Stock Data</button>
+    <button id="show-sma5">Show 5-Day SMA</button>
+    <button id="show-sma10">Show 10-Day SMA</button>
+</div>
+
+<!-- Minute-by-Minute Detailed Stock Data -->
+<div id="detailed-view">
+    <h2>Minute-by-Minute Detailed Stock Data</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Time</th>
+                <th>Open</th>
+                <th>High</th>
+                <th>Low</th>
+                <th>Close</th>
+                <th>Volume</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% if (detailedStockData && detailedStockData.length > 0) { %>
+                <% detailedStockData.forEach(data => { %>
+                    <tr>
+                        <td data-label="Time"><%= data.time %></td>
+                        <td data-label="Open"><%= data.open ? data.open.toFixed(2) : 'N/A' %></td>
+                        <td data-label="High"><%= data.high ? data.high.toFixed(2) : 'N/A' %></td>
+                        <td data-label="Low"><%= data.low ? data.low.toFixed(2) : 'N/A' %></td>
+                        <td data-label="Close"><%= data.close ? data.close.toFixed(2) : 'N/A' %></td>
+                        <td data-label="Volume"><%= data.volume ? data.volume.toLocaleString() : 'N/A' %></td>
+                    </tr>
+                <% }) %>
+            <% } else { %>
+                <tr>
+                    <td colspan="6">No stock data available.</td>
+                </tr>
+            <% } %>
+        </tbody>
+    </table>
+</div>
+
+<!-- 5-Day SMA Strategy -->
+<div id="strategy-sma5-view" style="display: none;">
+    <h2>Strategy Suggestion (5-Day SMA): <%= suggestion5 %></h2>
+    
+    <p>Note: The 5-day SMA requires 5 days of data to be calculated. The first few rows may show "N/A" as there isn't enough data yet to compute the SMA.</p>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Time</th>
+                <th>Close</th>
+                <th>5-day SMA</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% if (structuredSMAData && structuredSMAData.length > 0) { %>
+                <% structuredSMAData.forEach(data => { %>
+                    <tr>
+                        <td data-label="Time"><%= data.time %></td>
+                        <td data-label="Close"><%= data.close ? data.close.toFixed(2) : 'N/A' %></td>
+                        <td data-label="5-day SMA"><%= data.sma5 ? data.sma5.toFixed(2) : 'N/A' %></td>
+                    </tr>
+                <% }) %>
+            <% } else { %>
+                <tr>
+                    <td colspan="3">No stock data available.</td>
+                </tr>
+            <% } %>
+        </tbody>
+    </table>
+</div>
+
+<!-- 10-Day SMA Strategy -->
+<div id="strategy-sma10-view" style="display: none;">
+    <h2>Strategy Suggestion (10-Day SMA): <%= suggestion10 %></h2>
+    
+    <p>Note: The 10-day SMA requires 10 days of data to be calculated. The first few rows may show "N/A" as there isn't enough data yet to compute the SMA.</p>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Time</th>
+                <th>Close</th>
+                <th>10-day SMA</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% if (structuredSMAData && structuredSMAData.length > 0) { %>
+                <% structuredSMAData.forEach(data => { %>
+                    <tr>
+                        <td data-label="Time"><%= data.time %></td>
+                        <td data-label="Close"><%= data.close ? data.close.toFixed(2) : 'N/A' %></td>
+                        <td data-label="10-day SMA"><%= data.sma10 ? data.sma10.toFixed(2) : 'N/A' %></td>
+                    </tr>
+                <% }) %>
+            <% } else { %>
+                <tr>
+                    <td colspan="3">No stock data available.</td>
+                </tr>
+            <% } %>
+        </tbody>
+    </table>
+</div>
+
